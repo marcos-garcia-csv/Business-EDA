@@ -89,7 +89,7 @@ GROUP BY Name
 HAVING Total_Orders >= 5
 ORDER BY Total_Orders DESC;
 
-
+#Showing total order by Product
 SELECT products.ProductName,
 count(DISTINCT(orderdetails.orderid)) as Total_Orders
 FROM products
