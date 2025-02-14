@@ -35,19 +35,9 @@ The dataset is based on the **Northwind database**, a classic sample dataset use
 The queries in this repository are organized into different sections, each showcasing a specific **SQL skill**:  
 
 ### **1️⃣ Basic Queries**  
-✔ Retrieve customer details by country  
-✔ List all products with their prices  
-✔ Get orders placed in the last 6 months  
 
 ### **2️⃣ Aggregation & Grouping**  
-✔ Total sales per category  
-✔ Top 5 most purchased products  
-✔ Revenue generated per supplier  
 
 ### **3️⃣ Joins & Relationships**  
-✔ Customer orders with product details  
-✔ Employee sales performance  
-✔ Orders including shipping company information  
 
-### **4️⃣ Advanced SQL Techniques**  
-✔ **Subqueries** - Find top customers by revenue
+### **4️⃣ Subqueries**
