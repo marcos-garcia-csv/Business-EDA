@@ -1,5 +1,3 @@
-USE Northwind;
-
 #Exploratory Data Analysis (EDA)
 
 #Listing top 10 most expensive products
