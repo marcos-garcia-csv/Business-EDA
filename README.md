@@ -26,18 +26,4 @@ The dataset is based on the **Northwind database**, a classic sample dataset use
 - `OrderDetails` - Items sold per order  
 - `Products` - Inventory of items  
 - `Shippers` - Shipping providers  
-- `Suppliers` - Product suppliers  
-
----
-
-## 🔍 SQL Queries Breakdown  
-
-The queries in this repository are organized into different sections, each showcasing a specific **SQL skill**:  
-
-### **1️⃣ Basic Queries**  
-
-### **2️⃣ Aggregation & Grouping**  
-
-### **3️⃣ Joins & Relationships**  
-
-### **4️⃣ Subqueries**
+- `Suppliers` - Product suppliers
