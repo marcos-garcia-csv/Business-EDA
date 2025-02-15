@@ -1,3 +1,5 @@
+USE Northwind;
+
 #Exploratory Data Analysis (EDA)
 
 #Listing top 10 most expensive products
@@ -87,7 +89,7 @@ GROUP BY Name
 HAVING Total_Orders >= 5
 ORDER BY Total_Orders DESC;
 
-#Showing total order by Product
+#Showing order by Product
 SELECT products.ProductName,
 count(DISTINCT(orderdetails.orderid)) as Total_Orders
 FROM products
@@ -106,7 +108,7 @@ WHERE productid IN (
 	ORDER BY count(orderid) DESC
 );
 
-#Creating a view  for employee performance based on orders handled
+#Creating a view for employee performance based on orders handled
 CREATE VIEW Employee_Performance AS 
 SELECT concat(employees.FirstName," ",employees.LastName) as Employee_Name,
 COUNT(DISTINCT(orders.orderID)) as Total_Orders
@@ -115,4 +117,20 @@ LEFT JOIN orders on employees.EmployeeID = orders.EmployeeID
 LEFT JOIN orderdetails on orders.OrderID = orderdetails.OrderID
 GROUP BY Employee_Name
 ORDER BY Total_Orders DESC;
+
+CREATE VIEW CustomerOrderHistory AS
+SELECT
+	customers.customername,
+    orders.OrderID,
+    orders.OrderDate,
+    shippers.shippername,
+    concat(employees.FirstName," ",employees.LastName) as Employee_Name,
+    SUM(products.price * orderdetails.quantity) as Total_Sales
+FROM orders
+LEFT JOIN customers on orders.customerID = customers.customerid
+LEFT JOIN orderdetails on orders.orderid = orderdetails.orderid
+LEFT JOIN products on orderdetails.productid = products.productid
+LEFT JOIN shippers on orders.shipperID = shippers.shipperid
+LEFT JOIN employees on orders.employeeid = employees.employeeid
+GROUP BY orders.OrderID;
 
