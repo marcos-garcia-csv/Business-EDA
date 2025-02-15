@@ -30,27 +30,21 @@ The dataset is based on the **Northwind database**, a classic sample dataset use
 
 ---
 
-## 🔍 SQL Queries Breakdown  
+## 🔍 Project Breakdown 
 
-The queries in this repository are organized into different sections, each showcasing a specific **SQL skill**:  
+The queries in this repository each showcasing a specific **SQL skill**:
 
-### **1️⃣ Basic Queries**  
-✔ Retrieve customer details by country  
-✔ List all products with their prices  
-✔ Get orders placed in the last 6 months  
-
-### **2️⃣ Aggregation & Grouping**  
-✔ Total sales per category  
-✔ Top 5 most purchased products  
-✔ Revenue generated per supplier  
-
-### **3️⃣ Joins & Relationships**  
-✔ Customer orders with product details  
-✔ Employee sales performance  
-✔ Orders including shipping company information  
-
-### **4️⃣ Advanced SQL Techniques**  
-✔ **Subqueries** - Find top customers by revenue  
-✔ **Views** - Create a reusable view for product sales  
-✔ **Stored Procedures** - Automate revenue calculations  
-✔ **Indexes & Optimization** - Improve query performance  
+1. Listing Top 10 Most Expensive Products.
+2. Retrieving All Orders Placed by Customers.
+3. Total Revenue Per Month (1996).
+4. Listing Products Between 50 and 100.
+5. Showing the Most Recent 20 Orders.
+6. Average Price of All Products.
+7. Showing Sales by Categories.
+8. Total Revenue by Supplier.
+9. Total Orders by Employee.
+10. Displaying Customers Who Have Placed More Than Five Orders.
+11. Showing Orders by Product.
+12. Get Products That Were Ordered Only Once.
+13. Creating a View for Employee Performance.
+14. Creating a View for Customer Order History.
