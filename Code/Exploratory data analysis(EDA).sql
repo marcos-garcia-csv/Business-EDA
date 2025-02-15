@@ -3,7 +3,7 @@ USE Northwind;
 #Exploratory Data Analysis (EDA)
 
 #Listing top 10 most expensive products
-SELECT productname AS Product_Name,
+SELECT ProductName AS Product_Name,
        price AS Price
 FROM   products
 ORDER  BY price DESC
@@ -91,7 +91,7 @@ ORDER BY Total_Orders DESC;
 
 #Showing order by Product
 SELECT products.ProductName,
-count(DISTINCT(orderdetails.orderid)) as Total_Orders
+count(DISTINCT(orderdetails.OrderID)) as Total_Orders
 FROM products
 left join orderdetails on products.productid = orderdetails.productid
 group by products.ProductName
@@ -99,38 +99,39 @@ order by Total_Orders DESC;
 
 #Get products that have were ordered only once.
 SELECT ProductName 
-FROM products 
-WHERE productid IN (
-	SELECT productid 
-	FROM orderdetails 
-	GROUP BY productid 
-	HAVING count(orderid) = 1 
-	ORDER BY count(orderid) DESC
+FROM Products 
+WHERE Productid IN (
+	SELECT ProductID 
+	FROM Orderdetails 
+	GROUP BY ProductID
+	HAVING COUNT(OrderID) = 1 
+	ORDER BY COUNT(OrderID) DESC
 );
 
 #Creating a view for employee performance based on orders handled
 CREATE VIEW Employee_Performance AS 
-SELECT concat(employees.FirstName," ",employees.LastName) as Employee_Name,
-COUNT(DISTINCT(orders.orderID)) as Total_Orders
-FROM employees
-LEFT JOIN orders on employees.EmployeeID = orders.EmployeeID
-LEFT JOIN orderdetails on orders.OrderID = orderdetails.OrderID
+SELECT CONCAT(Employees.FirstName," ",Employees.LastName) as Employee_Name,
+COUNT(DISTINCT(Orders.OrderID)) as Total_Orders
+FROM Employees
+LEFT JOIN Orders on Employees.EmployeeID = Orders.EmployeeID
+LEFT JOIN Orderdetails on Orders.OrderID = Orderdetails.OrderID
 GROUP BY Employee_Name
 ORDER BY Total_Orders DESC;
 
+#Creating a view for customer order history.
 CREATE VIEW CustomerOrderHistory AS
 SELECT
-	customers.customername,
-    orders.OrderID,
-    orders.OrderDate,
-    shippers.shippername,
-    concat(employees.FirstName," ",employees.LastName) as Employee_Name,
-    SUM(products.price * orderdetails.quantity) as Total_Sales
-FROM orders
-LEFT JOIN customers on orders.customerID = customers.customerid
-LEFT JOIN orderdetails on orders.orderid = orderdetails.orderid
-LEFT JOIN products on orderdetails.productid = products.productid
-LEFT JOIN shippers on orders.shipperID = shippers.shipperid
-LEFT JOIN employees on orders.employeeid = employees.employeeid
-GROUP BY orders.OrderID;
+	customers.CustomerName,
+    Orders.OrderID,
+    Orders.OrderDate,
+    Shippers.Shippername,
+    CONCAT(Employees.FirstName," ",Employees.LastName) as Employee_Name,
+    SUM(Products.Price * Orderdetails.Quantity) as Total_Sales
+FROM Orders
+LEFT JOIN Customers ON Orders.customerID = Customers.Customerid
+LEFT JOIN Orderdetails ON Orders.Orderid = Orderdetails.Orderid
+LEFT JOIN Products ON Orderdetails.Productid = Products.Productid
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.Shipperid
+LEFT JOIN Employees ON Orders.Employeeid = Employees.Employeeid
+GROUP BY Orders.OrderID;
 
